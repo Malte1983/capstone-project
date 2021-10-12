@@ -5,7 +5,6 @@ function Header() {
   return (
     <Section>
       <MainTitle>Mental-Buddy</MainTitle>
-
       <TaskSpan>Meine Aufgaben</TaskSpan>
     </Section>
   )
