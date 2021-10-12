@@ -5,7 +5,6 @@ function Header() {
   return (
     <Section>
       <MainTitle>Mental-Buddy</MainTitle>
-      <TaskSpan>Meine Aufgaben</TaskSpan>
     </Section>
   )
 }
@@ -22,11 +21,4 @@ const MainTitle = styled.h1`
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-`
-const TaskSpan = styled.span`
-  font-family: 'Lato', sans-serif;
-  text-decoration: underline;
-  font-size: 25px;
-  margin-top: 40px;
-  margin-left: 15px;
 `
