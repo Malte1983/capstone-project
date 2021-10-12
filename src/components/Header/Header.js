@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 function Header() {
   return (
@@ -19,15 +19,14 @@ const MainTitle = styled.h1`
   margin-bottom: 15px;
 `
 
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+`
 const TaskSpan = styled.span`
   font-family: 'Lato', sans-serif;
   text-decoration: underline;
   font-size: 25px;
   margin-top: 40px;
   margin-left: 15px;
-`
-
-const Section = styled.section`
-  display: flex;
-  flex-direction: column;
 `

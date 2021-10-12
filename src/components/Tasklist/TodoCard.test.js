@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import TodoCard from './TodoCard'
+import TodoCard from './ToDoCard'
 
 describe('TaskList', () => {
   const todo = 'wash the car'

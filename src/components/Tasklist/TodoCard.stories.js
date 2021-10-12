@@ -1,4 +1,4 @@
-import TodoCard from './TodoCard'
+import TodoCard from './ToDoCard'
 
 export default {
   title: 'Component/TodoCard',

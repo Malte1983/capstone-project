@@ -1,8 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import lines from '../../assets/lines.svg'
 
-function Todo({ todo }) {
+function ToDoCard({ todo }) {
   return (
     <MainWrapper>
       <TodoMain>
@@ -15,7 +15,7 @@ function Todo({ todo }) {
   )
 }
 
-export default Todo
+export default ToDoCard
 
 const MainWrapper = styled.header`
   display: flex;

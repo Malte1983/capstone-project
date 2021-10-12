@@ -2,10 +2,10 @@ import { render, screen } from '@testing-library/react'
 import Header from './Header'
 
 describe('TaskList', () => {
-  const titleDescriptiom = 'Meine Aufgaben'
+  const titleDescription = 'Meine Aufgaben'
 
-  it('display the Text wash the Car', () => {
-    render(<Header title={titleDescriptiom} />)
+  it('display the Text Meine Aufgaben', () => {
+    render(<Header title={titleDescription} />)
     const text = screen.getByText('Meine Aufgaben')
     expect(text).toBeInTheDocument()
   })
