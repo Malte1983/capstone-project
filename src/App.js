@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import ToDoCard from './components/Tasklist/ToDoCard'
+import data from './components/data.json'
+import Header from './components/Header/Header'
+import styled from 'styled-components/macro'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Main>
+      <Header />
+      {data.map(data => (
+        <ToDoCard todo={data.todo} key={data.id} />
+      ))}
+    </Main>
+  )
 }
 
-export default App;
+export default App
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+`
