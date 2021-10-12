@@ -2,12 +2,14 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import lines from '../../assets/lines.svg'
 
-function ToDoCard({ todo }) {
+function Todo({ todo }) {
   return (
     <MainWrapper>
       <TodoMain>
         <TaskCard>
-          <img src={lines} width="28" color="white" alt="menu" />
+          <ButtonGrab>
+            <img src={lines} width="28" color="white" alt="menu" />
+          </ButtonGrab>
           <TaskList>{todo}</TaskList>
         </TaskCard>
       </TodoMain>
@@ -15,7 +17,7 @@ function ToDoCard({ todo }) {
   )
 }
 
-export default ToDoCard
+export default Todo
 
 const MainWrapper = styled.header`
   display: flex;
@@ -40,6 +42,12 @@ const TaskCard = styled.section`
 `
 const TaskList = styled.p`
   margin-left: 15px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Lato', sans-serif;
+`
+
+const ButtonGrab = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: move;
 `

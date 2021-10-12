@@ -1,21 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ToDoCard from './components/Tasklist/ToDoCard'
-import data from './components/data.json'
 import Header from './components/Header/Header'
 import styled from 'styled-components/macro'
 import InputTask from './components/Forms/InputTask'
+import { v4 as uuidv4 } from 'uuid'
+
+const ExampleData = [
+  {
+    id: 1,
+    todo: 'wash the Car',
+  },
+  {
+    id: 2,
+    todo: 'have a brake',
+  },
+
+  {
+    id: 3,
+    todo: 'meeting with Coaches',
+  },
+]
 
 function App() {
+  const [tasks, setTasks] = useState(ExampleData)
+
   return (
     <Main>
       <Header />
-      <InputTask />
-      <TaskSpan>Meine Aufgaben</TaskSpan>
-      {data.map(data => (
-        <ToDoCard todo={data.todo} key={data.id} />
+      <InputTask onCreateNewTasks={handleCreateTasks} />
+      <TaskSpan>Zu Erledigen</TaskSpan>
+      {tasks.map(ExampleData => (
+        <ToDoCard
+          todo={ExampleData.todo}
+          id={ExampleData.id}
+          key={ExampleData.id}
+        />
       ))}
     </Main>
   )
+  function handleCreateTasks({ todo, id }) {
+    const newTask = [
+      ...tasks,
+      {
+        id: uuidv4(),
+        todo: todo,
+      },
+    ]
+    setTasks(newTask)
+  }
 }
 
 export default App

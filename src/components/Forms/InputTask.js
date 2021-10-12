@@ -1,12 +1,39 @@
+import { useState } from 'react'
 import styled from 'styled-components/macro'
 
-function InputTask() {
+function InputTask({ onCreateNewTasks }) {
+  const [value, setValue] = useState('')
+  const handleChange = e => {
+    setValue(e.target.value)
+  }
+
   return (
-    <InputWrapper>
-      <InputNewTask type="text" />
-      <Button>Eintragen</Button>
-    </InputWrapper>
+    <InputForm onSubmit={event => handleSubmit(event)}>
+      <Label>add</Label>
+      <InputNewTask
+        type="text"
+        placeholder="Neue Aufgabe hinzufügen..."
+        name="todo"
+        required
+        autoComplete="Off"
+        value={value}
+        onChange={handleChange}
+      />
+      <Button disabled={!value}>Eintragen</Button>
+    </InputForm>
   )
+
+  function handleSubmit(eventInside) {
+    eventInside.preventDefault()
+    const form = eventInside.target
+    const { todo } = form.elements
+
+    onCreateNewTasks({
+      todo: todo.value,
+    })
+    form.reset()
+    todo.focus()
+  }
 }
 
 export default InputTask
@@ -18,9 +45,12 @@ const InputNewTask = styled.input`
   border: none;
   box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
   border-radius: 15px;
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
 `
 
-const InputWrapper = styled.div`
+const InputForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,4 +67,7 @@ const Button = styled.button`
   background-color: black;
   color: white;
   cursor: pointer;
+`
+const Label = styled.label`
+  display: none;
 `
