@@ -5,48 +5,73 @@ import styled from 'styled-components/macro'
 import InputTask from './components/Forms/InputTask'
 import { v4 as uuidv4 } from 'uuid'
 
-const ExampleData = [
+const exampleData = [
   {
     id: 1,
-    todo: 'wash the Car',
+    todo: 'Auto waschen',
+    completed: false,
   },
   {
     id: 2,
-    todo: 'have a brake',
+    todo: 'eine Pause machen',
+    completed: false,
   },
 
   {
     id: 3,
-    todo: 'meeting with Coaches',
+    todo: 'mit den Coaches treffen',
+    completed: false,
   },
 ]
 
 function App() {
-  const [tasks, setTasks] = useState(ExampleData)
+  const [tasks, setTasks] = useState(() => {
+    if (localStorage.getItem('tasksLocalStorage')) {
+      return JSON.parse(localStorage.getItem('tasksLocalStorage'))
+    } else {
+      return exampleData
+    }
+  })
 
   return (
     <Main>
       <Header />
       <InputTask onCreateNewTasks={handleCreateTasks} />
       <TaskHeadLine>Zu Erledigen</TaskHeadLine>
-      {tasks.map(ExampleData => (
+      {tasks.map(task => (
         <ToDoCard
-          todo={ExampleData.todo}
-          id={ExampleData.id}
-          key={ExampleData.id}
+          todo={task.todo}
+          id={task.id}
+          key={task.id}
+          completed={task.completed}
+          onHandleCheckbox={handleCheckbox}
         />
       ))}
     </Main>
   )
-  function handleCreateTasks({ todo, id }) {
-    const newTask = [
+  function handleCreateTasks({ todo }) {
+    const newTasks = [
       ...tasks,
       {
         id: uuidv4(),
         todo: todo,
+        completed: false,
       },
     ]
-    setTasks(newTask)
+    setTasks(newTasks)
+    localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
+  }
+
+  function handleCheckbox(id) {
+    const newTasks = tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, completed: !task.completed }
+      }
+      return task
+    })
+
+    setTasks(newTasks)
+    localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
   }
 }
 
