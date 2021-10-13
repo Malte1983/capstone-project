@@ -28,7 +28,7 @@ function App() {
     <Main>
       <Header />
       <InputTask onCreateNewTasks={handleCreateTasks} />
-      <TaskSpan>Zu Erledigen</TaskSpan>
+      <TaskHeadLine>Zu Erledigen</TaskHeadLine>
       {tasks.map(ExampleData => (
         <ToDoCard
           todo={ExampleData.todo}
@@ -56,10 +56,11 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
 `
-const TaskSpan = styled.span`
+const TaskHeadLine = styled.h2`
   font-family: 'Lato', sans-serif;
   text-decoration: underline;
   font-size: 25px;
   margin-top: 30px;
   margin-left: 15px;
+  font-weight: 600;
 `

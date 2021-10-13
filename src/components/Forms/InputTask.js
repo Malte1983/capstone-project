@@ -9,12 +9,13 @@ function InputTask({ onCreateNewTasks }) {
 
   return (
     <InputForm onSubmit={event => handleSubmit(event)}>
-      <Label>add</Label>
+      <Label htmlFor="InputNewTask">add</Label>
       <InputNewTask
         type="text"
         placeholder="Neue Aufgabe hinzufügen..."
         name="todo"
         required
+        id="InputNewTask"
         autoComplete="Off"
         value={value}
         onChange={handleChange}
@@ -31,7 +32,8 @@ function InputTask({ onCreateNewTasks }) {
     onCreateNewTasks({
       todo: todo.value,
     })
-    form.reset()
+
+    setValue('')
     todo.focus()
   }
 }
@@ -69,5 +71,5 @@ const Button = styled.button`
   cursor: pointer;
 `
 const Label = styled.label`
-  display: none;
+  visibility: hidden;
 `
