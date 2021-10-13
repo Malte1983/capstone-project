@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react'
 import Header from './Header'
 
-describe('TaskList', () => {
-  const titleDescription = 'Meine Aufgaben'
+describe('Header', () => {
+  const titleDescription = 'Mental-Buddy'
 
-  it('display the Text Meine Aufgaben', () => {
+  it('display the headline Mental-Buddy', () => {
     render(<Header title={titleDescription} />)
-    const text = screen.getByText('Meine Aufgaben')
+    const text = screen.getByText('Mental-Buddy')
     expect(text).toBeInTheDocument()
   })
 })
