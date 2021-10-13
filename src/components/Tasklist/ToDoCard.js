@@ -4,7 +4,7 @@ import lines from '../../assets/lines.svg'
 import trashIcon from '../../assets/trashIcon.svg'
 import edit from '../../assets/edit.svg'
 
-export default function ToDoCard({ todo, completed, onHandleCheckbox, id }) {
+export default function ToDoCard({ todo, completed, onHandleIsChecked, id }) {
   return (
     <MainWrapper>
       <TodoMain>
@@ -15,7 +15,7 @@ export default function ToDoCard({ todo, completed, onHandleCheckbox, id }) {
         <Checkbox
           type="checkbox"
           checked={completed}
-          onChange={() => onHandleCheckbox(id)}
+          onChange={() => onHandleIsChecked(id)}
         />
         <ButtonEdit>
           <img src={edit} alt="menu" width="30" />

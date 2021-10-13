@@ -44,7 +44,7 @@ function App() {
           id={task.id}
           key={task.id}
           completed={task.completed}
-          onHandleCheckbox={handleCheckbox}
+          onHandleIsChecked={handleCheckbox}
         />
       ))}
     </Main>
