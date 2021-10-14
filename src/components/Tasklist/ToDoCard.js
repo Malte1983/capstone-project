@@ -4,7 +4,13 @@ import lines from '../../assets/lines.svg'
 import trashIcon from '../../assets/trashIcon.svg'
 import edit from '../../assets/edit.svg'
 
-export default function ToDoCard({ todo, completed, onHandleIsChecked, id }) {
+export default function ToDoCard({
+  todo,
+  completed,
+  onHandleIsChecked,
+  id,
+  onHandleDeleteTask,
+}) {
   return (
     <MainWrapper>
       <TodoMain>
@@ -20,8 +26,8 @@ export default function ToDoCard({ todo, completed, onHandleIsChecked, id }) {
         <ButtonEdit>
           <img src={edit} alt="menu" width="30" />
         </ButtonEdit>
-        <ButtonTrash>
-          <img src={trashIcon} alt="menu" width="26" />
+        <ButtonTrash onClick={() => onHandleDeleteTask(id)}>
+          <img src={trashIcon} alt="menu" width="25" />
         </ButtonTrash>
       </TodoMain>
     </MainWrapper>
@@ -34,12 +40,12 @@ const MainWrapper = styled.div`
 `
 const TodoMain = styled.div`
   display: grid;
-  padding: 10px;
+  padding: 8px;
   grid-template-columns: 28px 1fr 28px 28px 28px;
   grid-template-rows: 28px;
   background-color: white;
   color: black;
-  width: 92%;
+  width: 90%;
   margin: 15px 15px 0 15px;
   align-items: center;
 `
@@ -67,7 +73,6 @@ const Checkbox = styled.input`
   width: 24px;
   height: 22px;
 `
-
 const ButtonEdit = styled.button`
   height: 28px;
   border: none;
