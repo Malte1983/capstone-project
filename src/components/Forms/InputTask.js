@@ -34,7 +34,6 @@ function InputTask({ onCreateNewTasks }) {
     })
 
     setValue('')
-    todo.focus()
   }
 }
 

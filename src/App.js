@@ -44,19 +44,21 @@ function App() {
           id={task.id}
           key={task.id}
           completed={task.completed}
-          onHandleCheckbox={handleCheckbox}
+          onHandleIsChecked={handleCheckbox}
+          onHandleDeleteTask={handleDeleteTask}
+          onHandleUpdateTask={handleUpdateTask}
         />
       ))}
     </Main>
   )
   function handleCreateTasks({ todo }) {
     const newTasks = [
-      ...tasks,
       {
         id: uuidv4(),
         todo: todo,
         completed: false,
       },
+      ...tasks,
     ]
     setTasks(newTasks)
     localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
@@ -72,6 +74,25 @@ function App() {
 
     setTasks(newTasks)
     localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
+  }
+
+  function handleUpdateTask(id, value) {
+    const newTasks = tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, todo: value }
+      }
+      return task
+    })
+
+    setTasks(newTasks)
+    localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
+  }
+
+  function handleDeleteTask(id) {
+    const filteredData = tasks.filter(task => task.id !== id)
+    const stringifiedValue = JSON.stringify(filteredData)
+    localStorage.setItem('tasksLocalStorage', stringifiedValue)
+    setTasks(filteredData)
   }
 }
 
