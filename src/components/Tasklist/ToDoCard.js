@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import lines from '../../assets/lines.svg'
 import trashIcon from '../../assets/trashIcon.svg'
 import edit from '../../assets/edit.svg'
+import done from '../../assets/done.svg'
 
 export default function ToDoCard({
   todo,
@@ -10,20 +11,54 @@ export default function ToDoCard({
   onHandleIsChecked,
   id,
   onHandleDeleteTask,
+  onHandleUpdateTask,
 }) {
+  const [updateTask, setUpdateTask] = useState(false)
+  const [value, setValue] = useState(todo)
+
+  const updateTaskHandler = () => {
+    setUpdateTask(!updateTask)
+  }
+
+  function handleChange(event) {
+    setValue(event.target.value)
+  }
+
+  function handleClick() {
+    onHandleUpdateTask(id, value)
+    updateTaskHandler()
+  }
+
   return (
     <MainWrapper>
       <TodoMain>
         <ButtonGrab>
           <img src={lines} alt="menu" />
         </ButtonGrab>
-        <TaskList strikeThrough={completed}>{todo}</TaskList>
+
+        {updateTask ? (
+          <Section>
+            <label htmlFor="edit" />
+            <EditInputField
+              onChange={handleChange}
+              type="text"
+              name="edit"
+              value={value}
+            ></EditInputField>
+            <EditCheckedButton onClick={handleClick}>
+              <img src={done} alt="menu" width="25" />
+            </EditCheckedButton>
+          </Section>
+        ) : (
+          <TaskList strikeThrough={completed}>{todo}</TaskList>
+        )}
+
         <Checkbox
           type="checkbox"
           checked={completed}
           onChange={() => onHandleIsChecked(id)}
         />
-        <ButtonEdit>
+        <ButtonEdit onClick={updateTaskHandler}>
           <img src={edit} alt="menu" width="30" />
         </ButtonEdit>
         <ButtonTrash onClick={() => onHandleDeleteTask(id)}>
@@ -77,4 +112,21 @@ const ButtonEdit = styled.button`
   height: 28px;
   border: none;
   background-color: transparent;
+`
+const EditInputField = styled.input`
+  font-size: 15px;
+  color: blue;
+  margin-left: 5px;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  width: 20vh;
+`
+const EditCheckedButton = styled.button`
+  background-color: transparent;
+  border: none;
+  height: 28px;
+  margin-left: 10px;
+`
+const Section = styled.section`
+  display: flex;
 `

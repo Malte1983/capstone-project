@@ -46,6 +46,7 @@ function App() {
           completed={task.completed}
           onHandleIsChecked={handleCheckbox}
           onHandleDeleteTask={handleDeleteTask}
+          onHandleUpdateTask={handleUpdateTask}
         />
       ))}
     </Main>
@@ -67,6 +68,18 @@ function App() {
     const newTasks = tasks.map(task => {
       if (task.id === id) {
         return { ...task, completed: !task.completed }
+      }
+      return task
+    })
+
+    setTasks(newTasks)
+    localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
+  }
+
+  function handleUpdateTask(id, value) {
+    const newTasks = tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, todo: value }
       }
       return task
     })
