@@ -102,7 +102,7 @@ const ButtonGrab = styled.button`
   border: none;
   background-color: transparent;
   cursor: move;
-  pointer-events: none;
+  pointer-events: auto;
 `
 const ButtonTrash = styled.button`
   height: 28px;
