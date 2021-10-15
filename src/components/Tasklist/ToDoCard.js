@@ -35,7 +35,7 @@ export default function ToDoCard({
       <MainWrapper>
         <TodoMain>
           <SortableKnob>
-            <ButtonGrab>
+            <ButtonGrab draggable="true">
               <img src={lines} alt="menu" />
             </ButtonGrab>
           </SortableKnob>
