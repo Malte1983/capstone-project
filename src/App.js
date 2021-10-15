@@ -43,7 +43,7 @@ function App() {
 
   return (
     <Main>
-      <Sticky boundaryElement=".block" hideOnBoundaryHit={false}>
+      <Sticky>
         <Header />
       </Sticky>
       <InputTask onCreateNewTasks={handleCreateTasks} />
