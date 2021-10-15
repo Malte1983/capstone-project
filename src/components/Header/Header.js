@@ -21,4 +21,5 @@ const MainTitle = styled.h1`
 const Section = styled.section`
   display: flex;
   flex-direction: column;
+  overflow: auto;
 `

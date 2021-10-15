@@ -3,7 +3,8 @@ import styled from 'styled-components/macro'
 import lines from '../../assets/lines.svg'
 import trashIcon from '../../assets/trashIcon.svg'
 import edit from '../../assets/edit.svg'
-import done from '../../assets/done.svg'
+import donegreen from '../../assets/donegreen.svg'
+import { SortableItem, SortableKnob } from 'react-easy-sort'
 
 export default function ToDoCard({
   todo,
@@ -30,42 +31,44 @@ export default function ToDoCard({
   }
 
   return (
-    <MainWrapper>
-      <TodoMain>
-        <ButtonGrab>
-          <img src={lines} alt="menu" />
-        </ButtonGrab>
-
-        {updateTask ? (
-          <Section>
-            <label htmlFor="edit" />
-            <EditInputField
-              onChange={handleChange}
-              type="text"
-              name="edit"
-              value={value}
-            ></EditInputField>
-            <EditCheckedButton onClick={handleClick}>
-              <img src={done} alt="menu" width="25" />
-            </EditCheckedButton>
-          </Section>
-        ) : (
-          <TaskList strikeThrough={completed}>{todo}</TaskList>
-        )}
-
-        <Checkbox
-          type="checkbox"
-          checked={completed}
-          onChange={() => onHandleIsChecked(id)}
-        />
-        <ButtonEdit onClick={updateTaskHandler}>
-          <img src={edit} alt="menu" width="30" />
-        </ButtonEdit>
-        <ButtonTrash onClick={() => onHandleDeleteTask(id)}>
-          <img src={trashIcon} alt="menu" width="25" />
-        </ButtonTrash>
-      </TodoMain>
-    </MainWrapper>
+    <SortableItem>
+      <MainWrapper>
+        <TodoMain>
+          <SortableKnob>
+            <ButtonGrab>
+              <img src={lines} alt="menu" />
+            </ButtonGrab>
+          </SortableKnob>
+          {updateTask ? (
+            <Section>
+              <label htmlFor="edit" />
+              <EditInputField
+                onChange={handleChange}
+                type="text"
+                name="edit"
+                value={value}
+              ></EditInputField>
+              <EditCheckedButton onClick={handleClick}>
+                <img src={donegreen} alt="menu" width="25" />
+              </EditCheckedButton>
+            </Section>
+          ) : (
+            <TaskList strikeThrough={completed}>{todo}</TaskList>
+          )}
+          <Checkbox
+            type="checkbox"
+            checked={completed}
+            onChange={() => onHandleIsChecked(id)}
+          />
+          <ButtonEdit onClick={updateTaskHandler}>
+            <img src={edit} alt="menu" width="30" />
+          </ButtonEdit>
+          <ButtonTrash onClick={() => onHandleDeleteTask(id)}>
+            <img src={trashIcon} alt="menu" width="25" />
+          </ButtonTrash>
+        </TodoMain>
+      </MainWrapper>
+    </SortableItem>
   )
 }
 
@@ -115,7 +118,7 @@ const ButtonEdit = styled.button`
 `
 const EditInputField = styled.input`
   font-size: 15px;
-  color: blue;
+  color: #ff8800;
   margin-left: 5px;
   border: 0.5px solid grey;
   border-radius: 5px;
