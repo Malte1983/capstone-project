@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import lines from '../../assets/lines.svg'
 import trashIcon from '../../assets/trashIcon.svg'
 import edit from '../../assets/edit.svg'
-import donegreen from '../../assets/donegreen.svg'
+import doneGreen from '../../assets/doneGreen.svg'
 import { SortableItem, SortableKnob } from 'react-easy-sort'
 
 export default function ToDoCard({
@@ -35,8 +35,8 @@ export default function ToDoCard({
       <MainWrapper>
         <TodoMain>
           <SortableKnob>
-            <ButtonGrab draggable={false}>
-              <Image src={lines} alt="menu" draggable={false} />
+            <ButtonGrab draggable={false} aria-label="Element ziehen">
+              <Image src={lines} alt="ziehen" draggable={false} />
             </ButtonGrab>
           </SortableKnob>
           {updateTask ? (
@@ -47,9 +47,12 @@ export default function ToDoCard({
                 type="text"
                 name="edit"
                 value={value}
-              ></EditInputField>
-              <EditCheckedButton onClick={handleClick}>
-                <Image src={donegreen} alt="menu" width="25" />
+              />
+              <EditCheckedButton
+                onClick={handleClick}
+                aria-label="Änderungen übernehmen"
+              >
+                <Image src={doneGreen} alt="Änderung übernehmen" width="25" />
               </EditCheckedButton>
             </Section>
           ) : (
@@ -59,12 +62,19 @@ export default function ToDoCard({
             type="checkbox"
             checked={completed}
             onChange={() => onHandleIsChecked(id)}
+            aria-label="als erledigt markieren"
           />
-          <ButtonEdit onClick={updateTaskHandler}>
-            <Image src={edit} alt="menu" width="30" />
+          <ButtonEdit
+            onClick={updateTaskHandler}
+            aria-label="Eintrag bearbeiten"
+          >
+            <Image src={edit} alt="bearbeiten" width="30" />
           </ButtonEdit>
-          <ButtonTrash onClick={() => onHandleDeleteTask(id)}>
-            <Image src={trashIcon} alt="menu" width="25" />
+          <ButtonTrash
+            onClick={() => onHandleDeleteTask(id)}
+            aria-label="Eintrag löschen"
+          >
+            <Image src={trashIcon} alt="löschen" width="25" />
           </ButtonTrash>
         </TodoMain>
       </MainWrapper>

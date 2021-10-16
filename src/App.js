@@ -36,10 +36,10 @@ function App() {
     }
   })
 
-  const uncompletedTaks = tasks.filter(task => !task.completed)
+  const uncompletedTasks = tasks.filter(task => !task.completed)
 
   const tasksNoun = tasks.length !== 1 ? '' : ''
-  const remainingTasks = `${uncompletedTaks.length} ${tasksNoun} `
+  const remainingTasks = `${uncompletedTasks.length} ${tasksNoun} `
 
   return (
     <Main>
