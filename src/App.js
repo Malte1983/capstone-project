@@ -38,7 +38,7 @@ function App() {
 
   const uncompletedTasks = tasks.filter(task => !task.completed)
 
-  const tasksNoun = tasks.length !== 1 ? '' : ''
+  const tasksNoun = tasks.length !== 1 ? '' : 'task'
   const remainingTasks = `${uncompletedTasks.length} ${tasksNoun} `
 
   return (
