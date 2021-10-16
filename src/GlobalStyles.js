@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
             sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        user-select: none; /* text-selection interferes with dragging */
     }
 `
 

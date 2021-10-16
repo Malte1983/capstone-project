@@ -35,8 +35,8 @@ export default function ToDoCard({
       <MainWrapper>
         <TodoMain>
           <SortableKnob>
-            <ButtonGrab draggable="true">
-              <img src={lines} alt="menu" />
+            <ButtonGrab draggable={false}>
+              <Image src={lines} alt="menu" draggable={false} />
             </ButtonGrab>
           </SortableKnob>
           {updateTask ? (
@@ -49,7 +49,7 @@ export default function ToDoCard({
                 value={value}
               ></EditInputField>
               <EditCheckedButton onClick={handleClick}>
-                <img src={donegreen} alt="menu" width="25" />
+                <Image src={donegreen} alt="menu" width="25" />
               </EditCheckedButton>
             </Section>
           ) : (
@@ -61,10 +61,10 @@ export default function ToDoCard({
             onChange={() => onHandleIsChecked(id)}
           />
           <ButtonEdit onClick={updateTaskHandler}>
-            <img src={edit} alt="menu" width="30" />
+            <Image src={edit} alt="menu" width="30" />
           </ButtonEdit>
           <ButtonTrash onClick={() => onHandleDeleteTask(id)}>
-            <img src={trashIcon} alt="menu" width="25" />
+            <Image src={trashIcon} alt="menu" width="25" />
           </ButtonTrash>
         </TodoMain>
       </MainWrapper>
@@ -134,4 +134,8 @@ const EditCheckedButton = styled.button`
 `
 const Section = styled.section`
   display: flex;
+`
+
+const Image = styled.img`
+  -webkit-touch-callout: none; /* prevent 3D-Touch/Force-Touch */
 `
