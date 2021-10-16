@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import lines from '../../assets/lines.svg'
 import trashIcon from '../../assets/trashIcon.svg'
 import edit from '../../assets/edit.svg'
-import doneGreen from '../../assets/doneGreen.svg'
+import Test from '../../assets/Test.svg'
 import { SortableItem, SortableKnob } from 'react-easy-sort'
 
 export default function ToDoCard({
@@ -52,7 +52,7 @@ export default function ToDoCard({
                 onClick={handleClick}
                 aria-label="Änderungen übernehmen"
               >
-                <Image src={doneGreen} alt="Änderung übernehmen" width="25" />
+                <Image src={Test} alt="Änderung übernehmen" width="25" />
               </EditCheckedButton>
             </Section>
           ) : (
