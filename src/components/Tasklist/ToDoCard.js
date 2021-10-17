@@ -4,7 +4,7 @@ import lines from '../../assets/lines.svg'
 import trashIcon from '../../assets/trashIcon.svg'
 import edit from '../../assets/edit.svg'
 import doneGreen from '../../assets/doneGreen.svg'
-import { SortableItem, SortableKnob } from 'react-easy-sort'
+import { SortableItem } from 'react-easy-sort'
 
 export default function ToDoCard({
   todo,
@@ -34,11 +34,10 @@ export default function ToDoCard({
     <SortableItem>
       <MainWrapper>
         <TodoMain>
-          <SortableKnob>
-            <ButtonGrab draggable={false} aria-label="Element ziehen">
-              <Image src={lines} alt="ziehen" draggable={false} />
-            </ButtonGrab>
-          </SortableKnob>
+          <ButtonGrab draggable={false} aria-label="Element ziehen">
+            <Image src={lines} alt="ziehen" draggable={false} />
+          </ButtonGrab>
+
           {updateTask ? (
             <Section>
               <label htmlFor="edit" />
