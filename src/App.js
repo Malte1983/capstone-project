@@ -10,7 +10,7 @@ import { arrayMoveImmutable } from 'array-move'
 const exampleData = [
   {
     id: 1,
-    todo: 'Auto waschen',
+    todo: '<-- gedrückt halten und ziehen zum sortieren',
     completed: false,
   },
   {
