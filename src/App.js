@@ -4,7 +4,6 @@ import Header from './components/Header/Header'
 import styled from 'styled-components/macro'
 import InputTask from './components/Forms/InputTask'
 import { v4 as uuidv4 } from 'uuid'
-import Sticky from 'react-sticky-el'
 import SortableList from 'react-easy-sort'
 import { arrayMoveImmutable } from 'array-move'
 
@@ -43,9 +42,7 @@ function App() {
 
   return (
     <Main>
-      <Sticky>
-        <Header />
-      </Sticky>
+      <Header />
       <InputTask onCreateNewTasks={handleCreateTasks} />
       <TaskHeadLine>Zu Erledigen</TaskHeadLine>
       <RemainingTasks>{remainingTasks}</RemainingTasks>

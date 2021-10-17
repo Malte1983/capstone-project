@@ -3,9 +3,9 @@ import styled from 'styled-components/macro'
 
 function Header() {
   return (
-    <Section>
+    <HeaderMain>
       <MainTitle>Mental-Buddy</MainTitle>
-    </Section>
+    </HeaderMain>
   )
 }
 
@@ -18,8 +18,10 @@ const MainTitle = styled.h1`
   margin-bottom: 15px;
 `
 
-const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
+const HeaderMain = styled.header`
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  overflow-x: hidden;
+  background-color: rgba(143, 205, 81, 1);
 `
