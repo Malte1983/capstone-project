@@ -3,7 +3,8 @@ import styled from 'styled-components/macro'
 import lines from '../../assets/lines.svg'
 import trashIcon from '../../assets/trashIcon.svg'
 import edit from '../../assets/edit.svg'
-import done from '../../assets/done.svg'
+import doneGreen from '../../assets/doneGreen.svg'
+import { SortableItem } from 'react-easy-sort'
 
 export default function ToDoCard({
   todo,
@@ -30,42 +31,54 @@ export default function ToDoCard({
   }
 
   return (
-    <MainWrapper>
-      <TodoMain>
-        <ButtonGrab>
-          <img src={lines} alt="menu" />
-        </ButtonGrab>
+    <SortableItem>
+      <MainWrapper>
+        <TodoMain>
+          <ButtonGrab draggable={false} aria-label="Element ziehen">
+            <Image src={lines} alt="ziehen" draggable={false} />
+          </ButtonGrab>
 
-        {updateTask ? (
-          <Section>
-            <label htmlFor="edit" />
-            <EditInputField
-              onChange={handleChange}
-              type="text"
-              name="edit"
-              value={value}
-            ></EditInputField>
-            <EditCheckedButton onClick={handleClick}>
-              <img src={done} alt="menu" width="25" />
-            </EditCheckedButton>
-          </Section>
-        ) : (
-          <TaskList strikeThrough={completed}>{todo}</TaskList>
-        )}
+          {updateTask ? (
+            <Section>
+              <label htmlFor="edit" />
+              <EditInputField
+                onChange={handleChange}
+                type="text"
+                name="edit"
+                value={value}
+              />
+              <EditCheckedButton
+                onClick={handleClick}
+                aria-label="Änderungen übernehmen"
+              >
+                <Image src={doneGreen} alt="Änderung übernehmen" width="25" />
+              </EditCheckedButton>
+            </Section>
+          ) : (
+            <TodoStrike strikeThrough={completed}>{todo}</TodoStrike>
+          )}
 
-        <Checkbox
-          type="checkbox"
-          checked={completed}
-          onChange={() => onHandleIsChecked(id)}
-        />
-        <ButtonEdit onClick={updateTaskHandler}>
-          <img src={edit} alt="menu" width="30" />
-        </ButtonEdit>
-        <ButtonTrash onClick={() => onHandleDeleteTask(id)}>
-          <img src={trashIcon} alt="menu" width="25" />
-        </ButtonTrash>
-      </TodoMain>
-    </MainWrapper>
+          <Checkbox
+            type="checkbox"
+            checked={completed}
+            onChange={() => onHandleIsChecked(id)}
+            aria-label="als erledigt markieren"
+          />
+          <ButtonEdit
+            onClick={updateTaskHandler}
+            aria-label="Eintrag bearbeiten"
+          >
+            <Image src={edit} alt="bearbeiten" width="30" />
+          </ButtonEdit>
+          <ButtonTrash
+            onClick={() => onHandleDeleteTask(id)}
+            aria-label="Eintrag löschen"
+          >
+            <Image src={trashIcon} alt="löschen" width="25" />
+          </ButtonTrash>
+        </TodoMain>
+      </MainWrapper>
+    </SortableItem>
   )
 }
 
@@ -84,7 +97,7 @@ const TodoMain = styled.div`
   margin: 15px 15px 0 15px;
   align-items: center;
 `
-const TaskList = styled.p`
+const TodoStrike = styled.p`
   margin-left: 15px;
   font-size: 17px;
   font-family: 'Lato', sans-serif;
@@ -98,6 +111,8 @@ const ButtonGrab = styled.button`
   height: 28px;
   border: none;
   background-color: transparent;
+  cursor: move;
+  pointer-events: auto;
 `
 const ButtonTrash = styled.button`
   height: 28px;
@@ -115,7 +130,7 @@ const ButtonEdit = styled.button`
 `
 const EditInputField = styled.input`
   font-size: 15px;
-  color: blue;
+  color: #ff8800;
   margin-left: 5px;
   border: 0.5px solid grey;
   border-radius: 5px;
@@ -129,4 +144,8 @@ const EditCheckedButton = styled.button`
 `
 const Section = styled.section`
   display: flex;
+`
+
+const Image = styled.img`
+  -webkit-touch-callout: none; /* prevent 3D-Touch/Force-Touch */
 `

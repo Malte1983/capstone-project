@@ -4,11 +4,13 @@ import Header from './components/Header/Header'
 import styled from 'styled-components/macro'
 import InputTask from './components/Forms/InputTask'
 import { v4 as uuidv4 } from 'uuid'
+import SortableList from 'react-easy-sort'
+import { arrayMoveImmutable } from 'array-move'
 
 const exampleData = [
   {
     id: 1,
-    todo: 'Auto waschen',
+    todo: '<-- gedrückt halten und ziehen zum sortieren',
     completed: false,
   },
   {
@@ -33,24 +35,43 @@ function App() {
     }
   })
 
+  const uncompletedTasks = tasks.filter(task => !task.completed)
+
+  const tasksNoun = tasks.length !== 1 ? '' : 'task'
+  const remainingTasks = `${uncompletedTasks.length} ${tasksNoun} `
+
   return (
     <Main>
       <Header />
       <InputTask onCreateNewTasks={handleCreateTasks} />
       <TaskHeadLine>Zu Erledigen</TaskHeadLine>
-      {tasks.map(task => (
-        <ToDoCard
-          todo={task.todo}
-          id={task.id}
-          key={task.id}
-          completed={task.completed}
-          onHandleIsChecked={handleCheckbox}
-          onHandleDeleteTask={handleDeleteTask}
-          onHandleUpdateTask={handleUpdateTask}
-        />
-      ))}
+      <RemainingTasks>{remainingTasks}</RemainingTasks>
+      <SortableList
+        onSortEnd={handleSortEnd}
+        className="list"
+        draggedItemClassName="dragged"
+      >
+        {tasks.map(task => (
+          <ToDoCard
+            todo={task.todo}
+            id={task.id}
+            key={task.id}
+            completed={task.completed}
+            onHandleIsChecked={handleCheckbox}
+            onHandleDeleteTask={handleDeleteTask}
+            onHandleUpdateTask={handleUpdateTask}
+          />
+        ))}
+      </SortableList>
     </Main>
   )
+
+  function handleSortEnd(oldIndex, newIndex) {
+    const newTasks = arrayMoveImmutable(tasks, oldIndex, newIndex)
+    setTasks(newTasks)
+    localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
+  }
+
   function handleCreateTasks({ todo }) {
     const newTasks = [
       {
@@ -60,6 +81,7 @@ function App() {
       },
       ...tasks,
     ]
+
     setTasks(newTasks)
     localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
   }
@@ -72,7 +94,11 @@ function App() {
       return task
     })
 
-    setTasks(newTasks)
+    setTasks(
+      newTasks.sort((a, b) =>
+        a.completed === b.completed ? 0 : a.completed ? 1 : -1
+      )
+    )
     localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
   }
 
@@ -109,4 +135,17 @@ const TaskHeadLine = styled.h2`
   margin-top: 30px;
   margin-left: 15px;
   font-weight: 600;
+`
+const RemainingTasks = styled.span`
+  font-family: 'Lato', sans-serif;
+  margin-left: 15px;
+  margin-top: 5px;
+  align-self: flex-start;
+  color: red;
+  font-size: 20px;
+  &::after {
+    font-size: 18px;
+    color: black;
+    content: 'Aufgaben';
+  }
 `
