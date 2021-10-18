@@ -55,8 +55,9 @@ export default function ToDoCard({
               </EditCheckedButton>
             </Section>
           ) : (
-            <TaskList strikeThrough={completed}>{todo}</TaskList>
+            <TodoStrike strikeThrough={completed}>{todo}</TodoStrike>
           )}
+
           <Checkbox
             type="checkbox"
             checked={completed}
@@ -96,7 +97,7 @@ const TodoMain = styled.div`
   margin: 15px 15px 0 15px;
   align-items: center;
 `
-const TaskList = styled.p`
+const TodoStrike = styled.p`
   margin-left: 15px;
   font-size: 17px;
   font-family: 'Lato', sans-serif;
