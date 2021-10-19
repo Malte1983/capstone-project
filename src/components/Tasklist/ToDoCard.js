@@ -94,13 +94,12 @@ const TodoMain = styled.div`
   background-color: white;
   color: black;
   width: 90%;
-  margin: 15px 15px 0 15px;
+  margin: 15px 15px 0 5%;
   align-items: center;
 `
 const TodoStrike = styled.p`
   margin-left: 15px;
   font-size: 17px;
-  font-family: 'Lato', sans-serif;
   text-decoration: ${({ strikeThrough }) =>
     strikeThrough ? 'line-through' : 'none'};
   text-decoration-thickness: 3px;
@@ -111,7 +110,6 @@ const ButtonGrab = styled.button`
   height: 28px;
   border: none;
   background-color: transparent;
-  cursor: move;
   pointer-events: auto;
 `
 const ButtonTrash = styled.button`
@@ -131,7 +129,7 @@ const ButtonEdit = styled.button`
 const EditInputField = styled.input`
   font-size: 15px;
   color: #ff8800;
-  margin-left: 5px;
+  margin-left: 5%;
   border: 0.5px solid grey;
   border-radius: 5px;
   width: 20vh;

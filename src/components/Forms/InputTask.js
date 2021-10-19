@@ -48,7 +48,6 @@ const InputNewTask = styled.input`
   border-radius: 15px;
   font-size: 18px;
   text-align: center;
-  font-family: 'Lato', sans-serif;
 `
 
 const InputForm = styled.form`
@@ -61,7 +60,6 @@ const InputForm = styled.form`
 const Button = styled.button`
   border: none;
   font-size: 20px;
-  font-family: 'Lato', sans-serif;
   font-weight: 600;
   border-radius: 15px;
   padding: 5px 10px 5px 10px;
