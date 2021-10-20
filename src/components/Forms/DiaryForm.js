@@ -44,7 +44,7 @@ export default function DiaryForm({ onHandleCreateDiarys }) {
       headline: subject.value,
       date: date.value,
     })
-
+    subject.value = ''
     entry.value = ''
   }
 }

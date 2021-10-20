@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import trashIcon from '../../assets/trashIcon.svg'
+import { useState } from 'react'
 
 export default function DiaryEntry({
   text,
@@ -9,6 +10,7 @@ export default function DiaryEntry({
   handleDeleteDiary,
   id,
 }) {
+  const [showDetails, setShowDetails] = useState(false)
   return (
     <SavedDiarysContainer>
       <DiaryDate>
@@ -18,10 +20,17 @@ export default function DiaryEntry({
         </ButtonDelete>
       </DiaryDate>
       <SavedDiaryHeadline>{headline}</SavedDiaryHeadline>
-      <ReadMoreButton>mehr</ReadMoreButton>
-      <p>{text}</p>
+      <ReadMoreButton onClick={() => handleDetailsButtonClick()}>
+        {showDetails ? 'verbergen' : 'anzeigen'}
+      </ReadMoreButton>
+      {showDetails ? <p>{text}</p> : ''}
     </SavedDiarysContainer>
   )
+
+  function handleDetailsButtonClick() {
+    const newShowDetails = showDetails ? false : true
+    setShowDetails(newShowDetails)
+  }
 }
 
 const SavedDiarysContainer = styled.div`
@@ -42,12 +51,21 @@ const DiaryDate = styled.span`
 `
 const SavedDiaryHeadline = styled.h4`
   text-decoration: underline;
-  padding-bottom: 3px;
+  padding-bottom: 5px;
   align-self: flex-start;
 `
 const ReadMoreButton = styled.button`
   margin-top: 5px;
   align-self: flex-start;
+  all: unset;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  padding: 2px;
+  width: 70px;
+  text-align: center;
+  font-weight: bold;
+  align-self: center;
 `
 const ButtonDelete = styled.button`
   width: 30px;
