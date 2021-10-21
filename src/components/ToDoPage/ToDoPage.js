@@ -3,7 +3,7 @@ import SortableList from 'react-easy-sort'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
 import InputTask from '../Forms/InputTask'
-import ToDoCard from '../ToDoCard/ToDoCard'
+import ToDoCard from './ToDoCard'
 
 export default function ToDoPage({ tasks, setTasks }) {
   const uncompletedTasks = tasks.filter(task => !task.completed)

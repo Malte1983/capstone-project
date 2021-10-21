@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function DiaryForm({ onHandleCreateDiarys }) {
@@ -29,6 +28,8 @@ export default function DiaryForm({ onHandleCreateDiarys }) {
         />
         <Label htmlFor="entry">Dein Eintrag:</Label>
         <Textarea
+          rows="8"
+          cols="100"
           name="entry"
           placeholder="Hier startet dein Positiv-Tagebuch"
           id="entry"
@@ -65,7 +66,7 @@ const Section = styled.div`
   margin-left: 5%;
 `
 const Textarea = styled.textarea`
-  height: 120px;
+  resize: none;
 `
 const Form = styled.form`
   display: flex;

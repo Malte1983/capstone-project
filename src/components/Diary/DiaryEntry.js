@@ -16,7 +16,7 @@ export default function DiaryEntry({
       <DiaryDate>
         {date}
         <ButtonDelete onClick={() => handleDeleteDiary(id)}>
-          <Image src={trashIcon} alt="loeschen" width="26" />
+          <img src={trashIcon} alt="loeschen" width="26" />
         </ButtonDelete>
       </DiaryDate>
       <SavedDiaryHeadline>{headline}</SavedDiaryHeadline>
@@ -74,4 +74,3 @@ const ButtonDelete = styled.button`
   position: absolute;
   right: 0;
 `
-const Image = styled.img``

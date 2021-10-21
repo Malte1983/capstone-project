@@ -4,21 +4,21 @@ import mood from '../../assets/mood.svg'
 import checklist from '../../assets/checklist.svg'
 import diary from '../../assets/diary.svg'
 import profile from '../../assets/profile.svg'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function Footer() {
   return (
     <FooterSection>
-      <NavButtons to="/Mood">
+      <NavButtons exact to="/Mood" activeClassName="active">
         <Image src={mood} alt="Stimmung" draggable={false} width="60" />
       </NavButtons>
-      <NavButtons to="/">
+      <NavButtons exact to="/" activeClassName="active">
         <Image src={checklist} alt="Aufgaben" draggable={false} width="60" />
       </NavButtons>
-      <NavButtons to="/DiaryForm">
+      <NavButtons exact to="/DiaryForm" activeClassName="active">
         <Image src={diary} alt="Tagebuch" draggable={false} width="60" />
       </NavButtons>
-      <NavButtons to="/Dashboard">
+      <NavButtons exact to="/Dashboard" activeClassName="active">
         <Image src={profile} alt="Dashboard" draggable={false} width="60" />
       </NavButtons>
     </FooterSection>
@@ -39,16 +39,15 @@ const FooterSection = styled.nav`
   justify-content: space-around;
   position: fixed;
   margin-top: 15px;
-  overflow: hidden;
 `
-const NavButtons = styled(Link)`
+const NavButtons = styled(NavLink)`
   all: unset;
   align-self: center;
   padding: 10px;
   border: 1px solid white;
   border-radius: 20px;
   margin: 5px;
-  &:focus {
+  &.active {
     background-color: #ff8800;
   }
 `

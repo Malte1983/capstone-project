@@ -61,13 +61,13 @@ function App() {
           <Route exact path="/">
             <ToDoPage tasks={tasks} setTasks={setTasks} />
           </Route>
-          <Route path="/DiaryForm">
+          <Route exact path="/DiaryForm">
             <DiaryPage diarys={diarys} setDiarys={setDiarys} />
           </Route>
-          <Route path="/Mood">
+          <Route exact path="/Mood">
             <Mood />
           </Route>
-          <Route path="/Dashboard">
+          <Route exact path="/Dashboard">
             <Dashboard />
           </Route>
         </Switch>
