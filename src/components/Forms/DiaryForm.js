@@ -12,16 +12,22 @@ export default function DiaryForm({ onHandleCreateDiarys }) {
         Es zählen nur die wirklich schönen Momente!
       </SecondHeadLine>
       <Form onSubmit={event => handleSubmit(event)}>
-        <LabelSubject htmlFor="subject">Überschrift:</LabelSubject>
-        <SubjectInput type="text" name="subject" id="subject" />
-        <Label htmlFor="entry">Dein Eintrag:</Label>
-        <label htmlFor="date"></label>
+        <SubjectInput
+          type="text"
+          name="subject"
+          id="subject"
+          placeholder="Deine Überschrift"
+        />
+
+        <LabelDate htmlFor="date">Datum</LabelDate>
         <CalenderDate
           type="date"
           defaultValue={calender}
           name="date"
           id="date"
+          placeholder="date"
         />
+        <Label htmlFor="entry">Dein Eintrag:</Label>
         <Textarea
           name="entry"
           placeholder="Hier startet dein Positiv-Tagebuch"
@@ -84,8 +90,8 @@ const Label = styled.label`
   margin-bottom: 10px;
   margin-top: 10px;
 `
-const LabelSubject = styled.label`
-  margin-top: 10px;
+const LabelDate = styled.label`
+  margin-bottom: 5px;
 `
 
 const DiaryHeader = styled.h4`
@@ -99,6 +105,7 @@ const SecondHeadLine = styled.span`
 const SubjectInput = styled.input`
   margin-top: 10px;
   height: 30px;
+  margin-bottom: 10px;
 `
 const CalenderDate = styled.input`
   width: 40%;
