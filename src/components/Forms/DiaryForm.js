@@ -16,6 +16,7 @@ export default function DiaryForm({ onHandleCreateDiarys }) {
           name="subject"
           id="subject"
           placeholder="Deine Überschrift"
+          required
         />
 
         <LabelDate htmlFor="date">Datum</LabelDate>
@@ -33,6 +34,7 @@ export default function DiaryForm({ onHandleCreateDiarys }) {
           name="entry"
           placeholder="Hier startet dein Positiv-Tagebuch"
           id="entry"
+          required
         />
         <ButtonSubmit>Eintrag speichern</ButtonSubmit>
       </Form>
