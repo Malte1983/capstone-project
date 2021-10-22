@@ -69,6 +69,11 @@ const Section = styled.div`
 `
 const Textarea = styled.textarea`
   resize: none;
+  border: none;
+  box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
+  border-radius: 15px;
+  font-size: 18px;
+  text-align: center;
 `
 const Form = styled.form`
   display: flex;
@@ -109,8 +114,18 @@ const SubjectInput = styled.input`
   margin-top: 10px;
   height: 30px;
   margin-bottom: 10px;
+  border: none;
+  box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
+  border-radius: 15px;
+  font-size: 18px;
+  text-align: center;
 `
 const CalenderDate = styled.input`
   width: 40%;
   margin-bottom: 5px;
+  border: none;
+  box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
+  border-radius: 15px;
+  font-size: 15px;
+  text-align: center;
 `

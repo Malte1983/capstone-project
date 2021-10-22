@@ -9,25 +9,25 @@ import { SortableItem } from 'react-easy-sort'
 export default function ToDoCard({
   todo,
   completed,
-  onHandleIsChecked,
+  onChecked,
   id,
-  onHandleDeleteTask,
-  onHandleUpdateTask,
+  onDeleteTask,
+  onUpdateTask,
 }) {
-  const [updateTask, setUpdateTask] = useState(false)
+  const [editingMode, setEditingMode] = useState(false)
   const [value, setValue] = useState(todo)
 
-  const updateTaskHandler = () => {
-    setUpdateTask(!updateTask)
+  const handleToggleEditButton = () => {
+    setEditingMode(true)
   }
 
   function handleChange(event) {
     setValue(event.target.value)
   }
 
-  function handleClick() {
-    onHandleUpdateTask(id, value)
-    updateTaskHandler()
+  function handleSaveChangeClick() {
+    onUpdateTask(id, value)
+    setEditingMode(false)
   }
 
   return (
@@ -38,7 +38,7 @@ export default function ToDoCard({
             <Image src={lines} alt="ziehen" draggable={false} />
           </ButtonGrab>
 
-          {updateTask ? (
+          {editingMode ? (
             <Section>
               <label htmlFor="edit" />
               <EditInputField
@@ -48,10 +48,10 @@ export default function ToDoCard({
                 value={value}
               />
               <EditCheckedButton
-                onClick={handleClick}
+                onClick={handleSaveChangeClick}
                 aria-label="Änderungen übernehmen"
               >
-                <Image src={doneGreen} alt="Änderung übernehmen" width="25" />
+                <Image src={doneGreen} alt="Änderungen übernehmen" width="25" />
               </EditCheckedButton>
             </Section>
           ) : (
@@ -61,17 +61,17 @@ export default function ToDoCard({
           <Checkbox
             type="checkbox"
             checked={completed}
-            onChange={() => onHandleIsChecked(id)}
+            onChange={() => onChecked(id)}
             aria-label="als erledigt markieren"
           />
           <ButtonEdit
-            onClick={updateTaskHandler}
+            onClick={handleToggleEditButton}
             aria-label="Eintrag bearbeiten"
           >
             <Image src={edit} alt="bearbeiten" width="30" />
           </ButtonEdit>
           <ButtonTrash
-            onClick={() => onHandleDeleteTask(id)}
+            onClick={() => onDeleteTask(id)}
             aria-label="Eintrag löschen"
           >
             <Image src={trashIcon} alt="löschen" width="25" />

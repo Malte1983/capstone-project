@@ -80,9 +80,9 @@ export default function ToDoPage({ tasks, setTasks }) {
             id={task.id}
             key={task.id}
             completed={task.completed}
-            onHandleIsChecked={handleCheckbox}
-            onHandleDeleteTask={handleDeleteTask}
-            onHandleUpdateTask={handleUpdateTask}
+            onChecked={handleCheckbox}
+            onDeleteTask={handleDeleteTask}
+            onUpdateTask={handleUpdateTask}
           />
         ))}
       </SortableList>

@@ -18,20 +18,38 @@ describe('TaskList', () => {
   })
 
   it('check all Button Elements to call', () => {
-    const mockCheckbox = jest.fn()
+    const mockOnChecked = jest.fn()
+    const mockOnDelete = jest.fn()
+    const mockId = '123ABC'
+    const mockUpdateTask = jest.fn()
+
     render(
       <SortableList>
-        <ToDoCard todo={todo} onHandleIsChecked={mockCheckbox} />
+        <ToDoCard
+          todo={todo}
+          onChecked={mockOnChecked}
+          onDeleteTask={mockOnDelete}
+          id={mockId}
+          onUpdateTask={mockUpdateTask}
+        />
       </SortableList>
     )
-    const grabImage = screen.getByAltText('ziehen')
-    userEvent.click(grabImage)
+
+    const ButtonDelete = screen.getByAltText('löschen')
+    userEvent.click(ButtonDelete)
+    expect(mockOnDelete).toHaveBeenCalled()
 
     const ButtonEdit = screen.getByAltText('bearbeiten')
     userEvent.click(ButtonEdit)
 
+    const ButtonUpdate = screen.getByRole('button', {
+      name: 'Änderungen übernehmen',
+    })
+    userEvent.click(ButtonUpdate)
+    expect(mockUpdateTask).toHaveBeenCalled()
+
     const Checkbox = screen.getByRole('checkbox')
     userEvent.click(Checkbox)
-    expect(mockCheckbox).toHaveBeenCalled()
+    expect(mockOnChecked).toHaveBeenCalled()
   })
 })
