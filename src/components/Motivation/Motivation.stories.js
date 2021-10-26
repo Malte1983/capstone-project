@@ -1,11 +1,11 @@
-import Mood from './Motivation'
+import Motivation from './Motivation'
 
 export default {
   title: 'Component/Motivation',
-  component: Mood,
+  component: Motivation,
 }
 
-const Template = args => <Mood {...args} />
+const Template = args => <Motivation />
 
 export const Primary = Template.bind({})
 Primary.args = {}

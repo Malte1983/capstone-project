@@ -10,6 +10,6 @@ describe('Footer', () => {
       </Router>
     )
     const NavLinks = screen.getAllByRole('link')
-    expect(NavLinks).toHaveLength(3)
+    expect(NavLinks).toHaveLength(4)
   })
 })

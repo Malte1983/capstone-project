@@ -93,6 +93,9 @@ const Textarea = styled.textarea`
   height: 8em;
   overflow-wrap: break-word;
   padding: 15px;
+  &::placeholder {
+    text-align: center;
+  }
 `
 const Form = styled.form`
   display: flex;
@@ -116,15 +119,16 @@ const ButtonSubmit = styled.button`
 const Label = styled.label`
   margin-bottom: 10px;
   margin-top: 10px;
+  font-size: 16px;
 `
 
 const DiaryHeader = styled.h4`
-  font-family: 'Lato', sans-serif;
+  font-size: 18px;
 `
 const SecondHeadLine = styled.span`
   font-style: italic;
-  font-family: 'Lato', sans-serif;
-  margin-top: 5px;
+  margin-top: 2px;
+  font-size: 16px;
 `
 const SubjectInput = styled.input`
   margin-top: 10px;
@@ -140,6 +144,7 @@ const SubjectInput = styled.input`
 const LabelMood = styled.label`
   margin-top: 10px;
   margin-bottom: 10px;
+  font-size: 16px;
 `
 const DropDownMenu = styled.select`
   border: none;
@@ -147,6 +152,8 @@ const DropDownMenu = styled.select`
   border-radius: 15px;
   padding: 5px;
   font-size: 17px;
+  width: 135px;
+  text-align: center;
 `
 const WrapperDatePicker = styled.div`
   .ant-picker {

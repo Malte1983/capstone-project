@@ -20,8 +20,9 @@ describe('TaskList', () => {
   it('check all Button Elements to call', () => {
     const mockOnChecked = jest.fn()
     const mockOnDelete = jest.fn()
-    const mockId = '123ABC'
+    const id = '123ABC'
     const mockUpdateTask = jest.fn()
+    const mockEditingMode = jest.fn()
 
     render(
       <SortableList>
@@ -29,8 +30,9 @@ describe('TaskList', () => {
           todo={todo}
           onChecked={mockOnChecked}
           onDeleteTask={mockOnDelete}
-          id={mockId}
+          id={id}
           onUpdateTask={mockUpdateTask}
+          setEditingMode={mockEditingMode(true)}
         />
       </SortableList>
     )
@@ -41,6 +43,7 @@ describe('TaskList', () => {
 
     const ButtonEdit = screen.getByAltText('bearbeiten')
     userEvent.click(ButtonEdit)
+    expect(mockEditingMode).toHaveBeenCalled()
 
     const ButtonUpdate = screen.getByAltText('Änderungen übernehmen')
     userEvent.click(ButtonUpdate)

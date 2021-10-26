@@ -104,6 +104,8 @@ const HeadLine = styled.h2`
 const H3 = styled.h3`
   text-align: center;
   font-size: 18px;
+  margin-left: 15px;
+  margin-right: 15px;
 `
 const ImageWrapper = styled.div`
   justify-content: center;

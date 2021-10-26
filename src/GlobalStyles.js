@@ -6,7 +6,6 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
        font-family: 'Lato', sans-serif;
-       
     }
 
     body {
@@ -17,8 +16,7 @@ const GlobalStyles = createGlobalStyle`
             sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        user-select: none; /* text-selection interferes with dragging */
-    }
+        user-select: none; /* text-selection interferes with dragging */ }
 
 `
 

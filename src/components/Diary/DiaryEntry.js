@@ -35,7 +35,7 @@ export default function DiaryEntry({
           ) : stimmung === 'überhaupt nicht gut' ? (
             <img
               src={verydissatisfied}
-              alt="Stimmung nicht so gut"
+              alt="Stimmung überhaupt nicht gut"
               width="28"
             />
           ) : (
