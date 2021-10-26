@@ -18,9 +18,9 @@ export default function Footer() {
       <NavButtons exact to="/DiaryForm" activeClassName="active">
         <Image src={diary} alt="Tagebuch" draggable={false} width="60" />
       </NavButtons>
-      {/* <NavButtons exact to="/Dashboard" activeClassName="active">
+      <NavButtons exact to="/Dashboard" activeClassName="active">
         <Image src={profile} alt="Dashboard" draggable={false} width="60" />
-      </NavButtons> */}
+      </NavButtons>
     </FooterSection>
   )
 }
