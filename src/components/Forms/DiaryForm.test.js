@@ -18,24 +18,25 @@ describe('DiaryForm', () => {
     )
     userEvent.type(diaryInput, 'new diary')
 
-    const button = screen.getByRole('button')
+    const button = screen.getByRole('button', { name: 'Eintrag speichern' })
     userEvent.click(button)
 
-    const currentDate = screen.getByLabelText('Datum')
+    const currentDate = screen.getByLabelText('Datum:')
     expect(currentDate).toBeInTheDocument()
 
     const today = new Date(),
-      todayString =
-        today.getFullYear() +
-        '-' +
+      date =
+        today.getDate() +
+        '.' +
         (today.getMonth() + 1) +
-        '-' +
-        today.getDate()
+        '.' +
+        today.getFullYear()
 
     expect(mockDiaryInput).toHaveBeenCalledWith({
       text: 'new diary',
-      date: todayString,
       headline: '',
+      date: date,
+      stimmung: 'sehr gut',
     })
   })
 })

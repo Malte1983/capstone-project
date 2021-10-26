@@ -1,9 +1,12 @@
 import styled from 'styled-components/macro'
+import React from 'react'
+import { DatePicker } from 'antd'
+import 'antd/dist/antd.css'
+import moment from 'moment'
 
 export default function DiaryForm({ onHandleCreateDiarys }) {
-  const today = new Date(),
-    calender =
-      today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+  const dateFormat = 'DD.MM.YYYY'
+
   return (
     <Section>
       <DiaryHeader>Was hast du tolles erlebt?</DiaryHeader>
@@ -16,25 +19,38 @@ export default function DiaryForm({ onHandleCreateDiarys }) {
           name="subject"
           id="subject"
           placeholder="Deine Überschrift"
+          required
         />
+        <Label htmlFor="date">Datum:</Label>
+        <WrapperDatePicker>
+          <DatePicker
+            format={dateFormat}
+            defaultValue={moment()}
+            name="date"
+            id="date"
+          />
+        </WrapperDatePicker>
 
-        <LabelDate htmlFor="date">Datum</LabelDate>
-        <CalenderDate
-          type="date"
-          defaultValue={calender}
-          name="date"
-          id="date"
-          placeholder="date"
-        />
+        <LabelMood>Deine Stimmung?</LabelMood>
+        <DropDownMenu name="Stimmung" id="stimmung">
+          <option value="sehr gut">sehr gut</option>
+          <option value="gut">gut</option>
+          <option value="neutral">neutral</option>
+          <option value="nicht so gut">nicht so gut</option>
+          <option value="überhaupt nicht gut">überhaupt nicht gut</option>
+        </DropDownMenu>
+
         <Label htmlFor="entry">Dein Eintrag:</Label>
         <Textarea
-          rows="8"
-          cols="100"
           name="entry"
           placeholder="Hier startet dein Positiv-Tagebuch"
           id="entry"
+          required
+          wrap="physical"
+          rows="10"
+          cols="40"
         />
-        <ButtonSubmit>Eintrag speichern</ButtonSubmit>
+        <ButtonSubmit name="Eintrag speichern">Eintrag speichern</ButtonSubmit>
       </Form>
     </Section>
   )
@@ -45,11 +61,13 @@ export default function DiaryForm({ onHandleCreateDiarys }) {
     const { entry } = form.elements
     const { subject } = form.elements
     const { date } = form.elements
+    const { stimmung } = form.elements
 
     onHandleCreateDiarys({
       text: entry.value,
       headline: subject.value,
       date: date.value,
+      stimmung: stimmung.value,
     })
     subject.value = ''
     entry.value = ''
@@ -67,6 +85,17 @@ const Section = styled.div`
 `
 const Textarea = styled.textarea`
   resize: none;
+  border: none;
+  box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
+  border-radius: 15px;
+  font-size: 18px;
+  width: 100%;
+  height: 8em;
+  overflow-wrap: break-word;
+  padding: 15px;
+  &::placeholder {
+    text-align: center;
+  }
 `
 const Form = styled.form`
   display: flex;
@@ -90,25 +119,46 @@ const ButtonSubmit = styled.button`
 const Label = styled.label`
   margin-bottom: 10px;
   margin-top: 10px;
-`
-const LabelDate = styled.label`
-  margin-bottom: 5px;
+  font-size: 16px;
 `
 
 const DiaryHeader = styled.h4`
-  font-family: 'Lato', sans-serif;
+  font-size: 18px;
 `
 const SecondHeadLine = styled.span`
   font-style: italic;
-  font-family: 'Lato', sans-serif;
-  margin-top: 5px;
+  margin-top: 2px;
+  font-size: 16px;
 `
 const SubjectInput = styled.input`
   margin-top: 10px;
   height: 30px;
   margin-bottom: 10px;
+  border: none;
+  box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
+  border-radius: 15px;
+  font-size: 18px;
+  text-align: center;
+  padding: 15px;
 `
-const CalenderDate = styled.input`
-  width: 40%;
-  margin-bottom: 5px;
+const LabelMood = styled.label`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+`
+const DropDownMenu = styled.select`
+  border: none;
+  box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
+  border-radius: 15px;
+  padding: 5px;
+  font-size: 17px;
+  width: 135px;
+  text-align: center;
+`
+const WrapperDatePicker = styled.div`
+  .ant-picker {
+    border: none;
+    box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
+    border-radius: 15px;
+  }
 `
