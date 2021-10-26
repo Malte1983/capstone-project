@@ -94,11 +94,13 @@ const TaskHeadLine = styled.h2`
   text-decoration: underline;
   font-size: 25px;
   margin-top: 30px;
-  margin-left: 15px;
+  margin-left: 5%;
   font-weight: 600;
+  padding-left: 3px;
 `
 const RemainingTasks = styled.span`
   margin-left: 5%;
+  padding-left: 3px;
   align-self: flex-start;
   color: red;
   font-size: 20px;

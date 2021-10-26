@@ -4,12 +4,13 @@ import DiaryEntry from './DiaryEntry'
 import { v4 as uuidv4 } from 'uuid'
 
 export default function DiaryPage({ diarys, setDiarys }) {
-  function handleCreateDiarys({ text, headline, date }) {
+  function handleCreateDiarys({ text, headline, date, stimmung }) {
     const newDiarys = [
       {
         id: uuidv4(),
         headline: headline,
         date: date,
+        stimmung: stimmung,
         text: text,
       },
       ...diarys,
@@ -33,6 +34,7 @@ export default function DiaryPage({ diarys, setDiarys }) {
         <DiaryEntry
           handleDeleteDiary={handleDeleteDiary}
           headline={diary.headline}
+          stimmung={diary.stimmung}
           date={diary.date}
           text={diary.text}
           key={diary.id}

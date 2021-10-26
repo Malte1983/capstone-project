@@ -1,7 +1,7 @@
-import Mood from './Mood'
+import Mood from './Motivation'
 
 export default {
-  title: 'Component/Mood',
+  title: 'Component/Motivation',
   component: Mood,
 }
 

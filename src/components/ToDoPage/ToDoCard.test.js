@@ -42,13 +42,13 @@ describe('TaskList', () => {
     const ButtonEdit = screen.getByAltText('bearbeiten')
     userEvent.click(ButtonEdit)
 
-    const ButtonUpdate = screen.getByRole('button', {
-      name: 'Änderungen übernehmen',
-    })
+    const ButtonUpdate = screen.getByAltText('Änderungen übernehmen')
     userEvent.click(ButtonUpdate)
     expect(mockUpdateTask).toHaveBeenCalled()
 
-    const Checkbox = screen.getByRole('checkbox')
+    const Checkbox = screen.getByRole('checkbox', {
+      name: 'als erledigt markieren',
+    })
     userEvent.click(Checkbox)
     expect(mockOnChecked).toHaveBeenCalled()
   })

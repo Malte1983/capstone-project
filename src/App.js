@@ -3,7 +3,7 @@ import Header from './components/Header/Header'
 import styled from 'styled-components/macro'
 import { Route, Switch } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
-import Mood from './components/Mood/Mood'
+import Motivation from './components/Motivation/Motivation'
 import Dashboard from './components/Dashboard/Dashboard'
 import ToDoPage from './components/ToDoPage/ToDoPage'
 import DiaryPage from './components/Diary/DiaryPage'
@@ -32,6 +32,7 @@ const exampleDataDiarys = [
     id: 4,
     headline: 'Toller Tag',
     date: '19.10.2021',
+    stimmung: 'sehr gut',
     text: ' Dies ist mein erster Tagebucheintrag',
   },
 ]
@@ -64,8 +65,8 @@ function App() {
           <Route exact path="/DiaryForm">
             <DiaryPage diarys={diarys} setDiarys={setDiarys} />
           </Route>
-          <Route exact path="/Mood">
-            <Mood />
+          <Route exact path="/Motivation">
+            <Motivation />
           </Route>
           <Route exact path="/Dashboard">
             <Dashboard />
