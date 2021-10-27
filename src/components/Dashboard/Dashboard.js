@@ -16,11 +16,14 @@ export default function Dashboard({ tasks, id, diarys }) {
         <img src={Klammerfisch} alt="klammerfisch" width="250" />
       </ImageContainer>
       <Headline>Deine Statistik</Headline>
-      <P>TAGEBUCH</P>
+      <P>tagebuch</P>
       <CounterWrapper>
-        <Counter>{totalDiarysLength}</Counter> Tagebucheinträge vorhanden
+        <Counter>{totalDiarysLength}</Counter>
+        {totalDiarysLength <= 1
+          ? 'Tagebucheintrag vorhanden'
+          : 'Tagebucheinträge vorhanden'}
       </CounterWrapper>
-      <P>AUFGABEN</P>
+      <P>aufgaben</P>
       <CounterWrapper>
         <Counter>{totalTasksLength}</Counter> Aufgaben Insgesamt: davon...
       </CounterWrapper>
@@ -105,4 +108,6 @@ const CounterWrapper = styled.div`
 `
 const P = styled.p`
   align-self: flex-start;
+  text-transform: uppercase;
+  font-weight: bold;
 `

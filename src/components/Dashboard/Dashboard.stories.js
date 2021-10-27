@@ -10,6 +10,7 @@ const Template = args => <Dashboard {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  task: 'tasks',
-  diary: 'diarys',
+  tasks: [5],
+  diarys: [8],
+  id: 2,
 }
