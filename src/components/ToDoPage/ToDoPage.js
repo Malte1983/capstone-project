@@ -7,7 +7,7 @@ import ToDoCard from './ToDoCard'
 
 export default function ToDoPage({ tasks, setTasks }) {
   const uncompletedTasks = tasks.filter(task => !task.completed)
-  const tasksNoun = tasks.length !== 1 ? '' : 'task'
+  const tasksNoun = tasks.length !== 1 ? '' : 'tasks'
   const remainingTasks = `${uncompletedTasks.length} ${tasksNoun} `
 
   function handleUpdateTask(id, value) {
@@ -22,9 +22,16 @@ export default function ToDoPage({ tasks, setTasks }) {
     localStorage.setItem('tasksLocalStorage', JSON.stringify(newTasks))
   }
   function handleDeleteTask(id) {
+    const taskToDelete = tasks.filter(task => task.id === id)
     const filteredData = tasks.filter(task => task.id !== id)
     const stringifiedValue = JSON.stringify(filteredData)
     localStorage.setItem('tasksLocalStorage', stringifiedValue)
+    if (taskToDelete[0].completed) {
+      const countDeletedTasks = JSON.parse(localStorage.getItem('deletedTasks'))
+      const newCountDeletedTask = JSON.stringify(countDeletedTasks + 1)
+      localStorage.setItem('deletedTasks', newCountDeletedTask)
+    }
+
     setTasks(filteredData)
   }
 

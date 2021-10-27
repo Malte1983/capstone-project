@@ -9,10 +9,10 @@ import { NavLink } from 'react-router-dom'
 export default function Footer() {
   return (
     <FooterSection>
-      <NavButtons exact to="/Motivation" activeClassName="active">
+      <NavButtons exact to="/" activeClassName="active">
         <Image src={mood} alt="Stimmung" draggable={false} width="60" />
       </NavButtons>
-      <NavButtons exact to="/" activeClassName="active">
+      <NavButtons exact to="/ToDoPage" activeClassName="active">
         <Image src={checklist} alt="Aufgaben" draggable={false} width="60" />
       </NavButtons>
       <NavButtons exact to="/DiaryForm" activeClassName="active">

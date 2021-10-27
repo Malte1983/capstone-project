@@ -15,9 +15,10 @@ export default function DiaryPage({ diarys, setDiarys }) {
       },
       ...diarys,
     ]
+    const sortedDates = newDiarys.sort((a, b) => (b.date < a.date ? -1 : 1))
 
-    setDiarys(newDiarys)
-    localStorage.setItem('diaryLocalStorage', JSON.stringify(newDiarys))
+    setDiarys(sortedDates)
+    localStorage.setItem('diaryLocalStorage', JSON.stringify(sortedDates))
   }
 
   function handleDeleteDiary(id) {
