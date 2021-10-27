@@ -90,7 +90,7 @@ const MainWrapper = styled.div`
 `
 const TodoMain = styled.div`
   display: grid;
-  padding: 8px;
+  padding: 10px;
   grid-template-columns: 28px 1fr 28px 28px 28px;
   grid-template-rows: 28px;
   background-color: white;
@@ -101,15 +101,17 @@ const TodoMain = styled.div`
   border: none;
   box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
   border-radius: 15px;
+  line-height: 1.2;
 `
 const TodoStrike = styled.p`
   margin-left: 15px;
-  font-size: 17px;
+  font-size: 16px;
   text-decoration: ${({ strikeThrough }) =>
     strikeThrough ? 'line-through' : 'none'};
   text-decoration-thickness: 3px;
   text-decoration-color: #ff8800;
-  padding-top: 18px;
+  padding-top: 15px;
+  word-break: break-all;
 `
 const ButtonGrab = styled.button`
   height: 28px;

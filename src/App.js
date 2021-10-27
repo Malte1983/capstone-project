@@ -59,17 +59,17 @@ function App() {
       <Wrapper>
         <Header />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/ToDoPage">
             <ToDoPage tasks={tasks} setTasks={setTasks} />
           </Route>
           <Route exact path="/DiaryForm">
             <DiaryPage diarys={diarys} setDiarys={setDiarys} />
           </Route>
-          <Route exact path="/Motivation">
+          <Route exact path="/">
             <Motivation />
           </Route>
           <Route exact path="/Dashboard">
-            <Dashboard />
+            <Dashboard tasks={tasks} diarys={diarys} />
           </Route>
         </Switch>
         <Footer />
