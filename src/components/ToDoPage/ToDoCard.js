@@ -21,15 +21,6 @@ export default function ToDoCard({
     setEditingMode(true)
   }
 
-  function handleChange(event) {
-    setValue(event.target.value)
-  }
-
-  function handleSaveChangeClick() {
-    onUpdateTask(id, value)
-    setEditingMode(false)
-  }
-
   return (
     <SortableItem>
       <MainWrapper>
@@ -82,6 +73,15 @@ export default function ToDoCard({
       </MainWrapper>
     </SortableItem>
   )
+
+  function handleChange(event) {
+    setValue(event.target.value)
+  }
+
+  function handleSaveChangeClick() {
+    onUpdateTask(id, value)
+    setEditingMode(false)
+  }
 }
 
 const MainWrapper = styled.div`

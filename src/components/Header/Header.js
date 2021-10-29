@@ -24,4 +24,5 @@ const HeaderMain = styled.header`
   top: 0;
   overflow-x: hidden;
   background-color: rgba(143, 205, 81, 1);
+  z-index: 1;
 `

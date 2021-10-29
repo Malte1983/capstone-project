@@ -2,40 +2,40 @@ import React from 'react'
 import DiaryForm from '../Forms/DiaryForm'
 import DiaryEntry from './DiaryEntry'
 import { v4 as uuidv4 } from 'uuid'
+import saveToLocal from '../../lib/saveToLocal'
 
-export default function DiaryPage({ diarys, setDiarys }) {
-  function handleCreateDiarys({ text, headline, date, stimmung }) {
-    const newDiarys = [
+export default function DiaryPage({ diaries, onSetDiaries }) {
+  function handleCreateDiaries({ text, headline, date, mood }) {
+    const newDiaries = [
       {
         id: uuidv4(),
         headline: headline,
         date: date,
-        stimmung: stimmung,
+        mood: mood,
         text: text,
       },
-      ...diarys,
+      ...diaries,
     ]
-    const sortedDates = newDiarys.sort((a, b) => (b.date < a.date ? -1 : 1))
+    const sortedDates = newDiaries.sort((a, b) => (b.date < a.date ? -1 : 1))
 
-    setDiarys(sortedDates)
-    localStorage.setItem('diaryLocalStorage', JSON.stringify(sortedDates))
+    onSetDiaries(sortedDates)
+    saveToLocal('diaryLocalStorage', sortedDates)
   }
 
   function handleDeleteDiary(id) {
-    const filteredData = diarys.filter(diary => diary.id !== id)
-    const stringifiedValue = JSON.stringify(filteredData)
-    localStorage.setItem('diaryLocalStorage', stringifiedValue)
-    setDiarys(filteredData)
+    const filteredData = diaries.filter(diary => diary.id !== id)
+    saveToLocal('diaryLocalStorage', filteredData)
+    onSetDiaries(filteredData)
   }
 
   return (
     <div>
-      <DiaryForm onHandleCreateDiarys={handleCreateDiarys} />
-      {diarys.map(diary => (
+      <DiaryForm onHandleCreateDiaries={handleCreateDiaries} />
+      {diaries.map(diary => (
         <DiaryEntry
           handleDeleteDiary={handleDeleteDiary}
           headline={diary.headline}
-          stimmung={diary.stimmung}
+          mood={diary.mood}
           date={diary.date}
           text={diary.text}
           key={diary.id}

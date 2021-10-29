@@ -3,10 +3,10 @@ import styled from 'styled-components/macro'
 import Klammerfisch from '../../assets/Klammerfisch.png'
 import GoldStar from '../../assets/GoldStar.svg'
 
-export default function Dashboard({ tasks, id, diarys }) {
+export default function Dashboard({ tasks, id, diaries }) {
   const completedTasksLength = tasks.filter(task => task.completed).length
   const totalTasksLength = tasks.filter(task => task.id !== id).length
-  const totalDiarysLength = diarys.filter(diary => diary.id !== id).length
+  const totalDiariesLength = diaries.filter(diary => diary.id !== id).length
   const countDeletedTasks = JSON.parse(localStorage.getItem('deletedTasks'))
   const countCompletedTask = completedTasksLength + countDeletedTasks
 
@@ -18,8 +18,8 @@ export default function Dashboard({ tasks, id, diarys }) {
       <Headline>Deine Statistik</Headline>
       <P>tagebuch</P>
       <CounterWrapper>
-        <Counter>{totalDiarysLength}</Counter>
-        {totalDiarysLength <= 1
+        <Counter>{totalDiariesLength}</Counter>
+        {totalDiariesLength <= 1
           ? 'Tagebucheintrag vorhanden'
           : 'Tagebucheinträge vorhanden'}
       </CounterWrapper>
@@ -30,31 +30,21 @@ export default function Dashboard({ tasks, id, diarys }) {
       <MainWrapper>
         <CounterWrapper>
           <Counter>{countCompletedTask}</Counter>
-          erledigte Aufgaben:
-          {countCompletedTask >= 1 ? (
+          {countCompletedTask <= 1 ? 'erledigte Aufgabe' : 'erledigte Aufgaben'}
+          {countCompletedTask >= 10 && (
             <img src={GoldStar} alt="ein Stern" width="25" height="25" />
-          ) : (
-            ''
           )}
-          {countCompletedTask >= 5 ? (
+          {countCompletedTask >= 30 && (
             <img src={GoldStar} alt="ein Stern" width="25" height="25" />
-          ) : (
-            ''
           )}
-          {countCompletedTask >= 10 ? (
+          {countCompletedTask >= 50 && (
             <img src={GoldStar} alt="ein Stern" width="25" height="25" />
-          ) : (
-            ''
           )}
-          {countCompletedTask >= 15 ? (
+          {countCompletedTask >= 70 && (
             <img src={GoldStar} alt="ein Stern" width="25" height="25" />
-          ) : (
-            ''
           )}
-          {countCompletedTask >= 20 ? (
+          {countCompletedTask >= 100 && (
             <img src={GoldStar} alt="ein Stern" width="25" height="25" />
-          ) : (
-            ''
           )}
         </CounterWrapper>
       </MainWrapper>

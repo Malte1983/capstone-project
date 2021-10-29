@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "todo": "<-- gedrückt halten und ziehen zum sortieren",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "todo": "eine Pause machen",
+    "completed": false
+  },
+
+  {
+    "id": 3,
+    "todo": "mit den Coaches treffen",
+    "completed": false
+  }
+]
