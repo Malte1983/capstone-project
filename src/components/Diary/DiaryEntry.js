@@ -109,8 +109,8 @@ const ButtonDelete = styled.button`
   top: 10px;
 `
 const P = styled.p`
-  word-break: break-all;
   margin-top: 5px;
   margin-left: 5px;
+  word-wrap: break-word;
 `
 const Wrapper = styled.div``

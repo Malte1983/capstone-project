@@ -88,9 +88,9 @@ const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-const TodoMain = styled.div`
+const TodoMain = styled.section`
   display: grid;
-  padding: 15px;
+  padding: 10px;
   grid-template-columns: 28px 1fr 28px 28px 28px;
   grid-template-rows: 28px;
   background-color: white;
@@ -101,6 +101,7 @@ const TodoMain = styled.div`
   box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
   border-radius: 15px;
   line-height: 1.2;
+  height: auto;
 `
 const TodoStrike = styled.p`
   margin-left: 15px;
@@ -110,6 +111,7 @@ const TodoStrike = styled.p`
   text-decoration-thickness: 3px;
   text-decoration-color: #ff8800;
   padding-top: 15px;
+  padding-right: 10px;
 `
 const ButtonGrab = styled.button`
   height: 28px;
@@ -137,7 +139,7 @@ const EditInputField = styled.input`
   margin-left: 5%;
   border: 0.5px solid grey;
   border-radius: 5px;
-  width: 20vh;
+  width: 25vh;
 `
 const EditCheckedButton = styled.button`
   background-color: transparent;

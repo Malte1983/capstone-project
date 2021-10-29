@@ -21,7 +21,7 @@ function InputTask({ onCreateNewTasks }) {
         onChange={handleChange}
         maxLength="40"
       />
-      <Span>max 40 Zeichen</Span>
+      <Span>max. 40 Zeichen</Span>
       <Button disabled={!value}>Eintragen</Button>
     </InputForm>
   )
