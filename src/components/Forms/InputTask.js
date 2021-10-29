@@ -19,7 +19,9 @@ function InputTask({ onCreateNewTasks }) {
         autoComplete="Off"
         value={value}
         onChange={handleChange}
+        maxLength="40"
       />
+      <Span>max 40 Zeichen</Span>
       <Button disabled={!value}>Eintragen</Button>
     </InputForm>
   )
@@ -46,8 +48,9 @@ const InputNewTask = styled.input`
   border: none;
   box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
   border-radius: 15px;
-  font-size: 18px;
+  font-size: 17px;
   text-align: center;
+  word-break: break-all;
 `
 
 const InputForm = styled.form`
@@ -55,7 +58,7 @@ const InputForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 2px;
 `
 const Button = styled.button`
   border: none;
@@ -69,4 +72,8 @@ const Button = styled.button`
 `
 const Label = styled.label`
   visibility: hidden;
+`
+const Span = styled.span`
+  font-size: 12px;
+  font-style: italic;
 `

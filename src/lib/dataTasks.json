@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "todo": "<-- gedrückt halten und ziehen zum sortieren",
+    "todo": "Hey, halte mich gedrückt und ordne mich neu an",
     "completed": false
   },
   {
     "id": 2,
-    "todo": "eine Pause machen",
+    "todo": "Aufregung Abschlussevent ablegen, Wuusaa ",
     "completed": false
   },
 
   {
     "id": 3,
-    "todo": "mit den Coaches treffen",
+    "todo": "Abschluss ausgiebig feiern",
     "completed": false
   }
 ]

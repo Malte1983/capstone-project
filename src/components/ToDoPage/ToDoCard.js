@@ -90,13 +90,12 @@ const MainWrapper = styled.div`
 `
 const TodoMain = styled.div`
   display: grid;
-  padding: 10px;
+  padding: 15px;
   grid-template-columns: 28px 1fr 28px 28px 28px;
   grid-template-rows: 28px;
   background-color: white;
   color: black;
-  width: 90%;
-  margin: 15px 15px 0 5%;
+  margin: 10px 10px 5px 10px;
   align-items: center;
   border: none;
   box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
@@ -111,7 +110,6 @@ const TodoStrike = styled.p`
   text-decoration-thickness: 3px;
   text-decoration-color: #ff8800;
   padding-top: 15px;
-  word-break: break-all;
 `
 const ButtonGrab = styled.button`
   height: 28px;
