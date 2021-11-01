@@ -32,14 +32,6 @@ describe('DiaryForm', () => {
       '.' +
       d.getFullYear()
 
-    // const today = new Date(),
-    //   date =
-    //     today.getDate() +
-    //     '.' +
-    //     (today.getMonth() + 1) +
-    //     '.' +
-    //     today.getFullYear()
-
     expect(mockDiaryInput).toHaveBeenCalledWith({
       text: 'new diary',
       headline: '',
