@@ -24,18 +24,26 @@ describe('DiaryForm', () => {
     const currentDate = screen.getByLabelText('Datum:')
     expect(currentDate).toBeInTheDocument()
 
-    const today = new Date(),
-      date =
-        today.getDate() +
-        '.' +
-        (today.getMonth() + 1) +
-        '.' +
-        today.getFullYear()
+    const d = new Date()
+    const dateString =
+      ('0' + d.getDate()).slice(-2) +
+      '.' +
+      ('0' + (d.getMonth() + 1)).slice(-2) +
+      '.' +
+      d.getFullYear()
+
+    // const today = new Date(),
+    //   date =
+    //     today.getDate() +
+    //     '.' +
+    //     (today.getMonth() + 1) +
+    //     '.' +
+    //     today.getFullYear()
 
     expect(mockDiaryInput).toHaveBeenCalledWith({
       text: 'new diary',
       headline: '',
-      date: date,
+      date: dateString,
       mood: 'sehr gut',
     })
   })
