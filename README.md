@@ -1,14 +1,14 @@
 # The Mental-Buddy App
 
-- Framework: React.JS
-- Libraries: Easy-Drag n Drop
-- DatePicker by Ant Design
-
-## The idea behind this project:
+## The Idea Behind This Project:
 
 Everyone knows it and everyone hates it! The day is far too short, and there are still so many things to do. The dishes are waiting, the doctor's appointment is just around the corner and ...oh yes... didn't I have another appointment at the city hall?
 
 The idea is to give the user a good feeling at first. Once he or she is sufficiently motivated, it is a matter of entering his or her tasks and diary- entries.
+
+## Screenshots
+
+![App-Screenshot](./src/App-Screenshot.png)
 
 ## Start-Page
 
@@ -30,3 +30,21 @@ Everything is stored (as well as the tasks) in the localStorage. Worth mentionin
 In short: this page shows the user a small overview. How many diary entries are available? How many tasks are there in total and how many could I complete?
 
 The more tasks have been completed, the more stars the user receives. :)
+
+## Tech Stack
+
+- React.JS
+- React Hooks
+- Easy-Drag n Drop
+- DatePicker by Ant Design
+- React Router
+- localStorage
+- React Testing Library
+- Vercel
+- Jest
+- Styled Components
+- Storybook
+
+## Demo
+
+[Watch on Vercel](https://capstone-project-roan.vercel.app/)
