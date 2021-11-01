@@ -1,5 +1,4 @@
 import Dashboard from './Dashboard'
-import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'Component/Dashboard',
@@ -10,7 +9,6 @@ const Template = args => <Dashboard {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  tasks: [5],
-  diarys: [8],
-  id: 2,
+  tasks: [1],
+  diaries: [1],
 }

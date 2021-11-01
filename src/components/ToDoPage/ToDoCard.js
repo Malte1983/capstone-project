@@ -21,15 +21,6 @@ export default function ToDoCard({
     setEditingMode(true)
   }
 
-  function handleChange(event) {
-    setValue(event.target.value)
-  }
-
-  function handleSaveChangeClick() {
-    onUpdateTask(id, value)
-    setEditingMode(false)
-  }
-
   return (
     <SortableItem>
       <MainWrapper>
@@ -82,26 +73,35 @@ export default function ToDoCard({
       </MainWrapper>
     </SortableItem>
   )
+
+  function handleChange(event) {
+    setValue(event.target.value)
+  }
+
+  function handleSaveChangeClick() {
+    onUpdateTask(id, value)
+    setEditingMode(false)
+  }
 }
 
 const MainWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-const TodoMain = styled.div`
+const TodoMain = styled.section`
   display: grid;
   padding: 10px;
   grid-template-columns: 28px 1fr 28px 28px 28px;
   grid-template-rows: 28px;
   background-color: white;
   color: black;
-  width: 90%;
-  margin: 15px 15px 0 5%;
+  margin: 10px 10px 5px 10px;
   align-items: center;
   border: none;
   box-shadow: inset 0 0 4px 2px rgba(46, 49, 49, 1);
   border-radius: 15px;
   line-height: 1.2;
+  height: auto;
 `
 const TodoStrike = styled.p`
   margin-left: 15px;
@@ -111,7 +111,7 @@ const TodoStrike = styled.p`
   text-decoration-thickness: 3px;
   text-decoration-color: #ff8800;
   padding-top: 15px;
-  word-break: break-all;
+  padding-right: 10px;
 `
 const ButtonGrab = styled.button`
   height: 28px;
@@ -139,7 +139,7 @@ const EditInputField = styled.input`
   margin-left: 5%;
   border: 0.5px solid grey;
   border-radius: 5px;
-  width: 20vh;
+  width: 25vh;
 `
 const EditCheckedButton = styled.button`
   background-color: transparent;

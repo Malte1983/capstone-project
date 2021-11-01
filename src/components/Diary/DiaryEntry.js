@@ -11,7 +11,7 @@ import verysatisfied from '../../assets/verysatisfied.svg'
 export default function DiaryEntry({
   text,
   headline,
-  stimmung,
+  mood,
   date,
   handleDeleteDiary,
   id,
@@ -24,15 +24,15 @@ export default function DiaryEntry({
         Am {date}
         <Wrapper>
           war meine Stimmung:{' '}
-          {stimmung === 'sehr gut' ? (
+          {mood === 'sehr gut' ? (
             <img src={verysatisfied} alt="Stimmung sehr gut" width="28" />
-          ) : stimmung === 'gut' ? (
+          ) : mood === 'gut' ? (
             <img src={satisfied} alt="Stimmung gut" width="28" />
-          ) : stimmung === 'neutral' ? (
+          ) : mood === 'neutral' ? (
             <img src={neutral} alt="Stimmung neutral" width="28" />
-          ) : stimmung === 'nicht so gut' ? (
+          ) : mood === 'nicht so gut' ? (
             <img src={dissatisfied} alt="Stimmung nicht so gut" width="28" />
-          ) : stimmung === 'überhaupt nicht gut' ? (
+          ) : mood === 'überhaupt nicht gut' ? (
             <img
               src={verydissatisfied}
               alt="Stimmung überhaupt nicht gut"
@@ -109,8 +109,8 @@ const ButtonDelete = styled.button`
   top: 10px;
 `
 const P = styled.p`
-  word-break: break-all;
   margin-top: 5px;
   margin-left: 5px;
+  word-wrap: break-word;
 `
 const Wrapper = styled.div``

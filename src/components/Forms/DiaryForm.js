@@ -4,12 +4,12 @@ import { DatePicker } from 'antd'
 import 'antd/dist/antd.css'
 import moment from 'moment'
 
-export default function DiaryForm({ onHandleCreateDiarys, diarys }) {
+export default function DiaryForm({ onHandleCreateDiaries }) {
   const dateFormat = 'DD.MM.YYYY'
 
   return (
     <Section>
-      <DiaryHeader>Was hast du tolles erlebt?</DiaryHeader>
+      <DiaryHeader>Was Hast Du Tolles Erlebt?</DiaryHeader>
       <SecondHeadLine>
         Es zählen nur die wirklich schönen Momente!
       </SecondHeadLine>
@@ -32,7 +32,7 @@ export default function DiaryForm({ onHandleCreateDiarys, diarys }) {
         </WrapperDatePicker>
 
         <LabelMood>Deine Stimmung?</LabelMood>
-        <DropDownMenu name="Stimmung" id="stimmung">
+        <DropDownMenu name="mood" id="mood">
           <option value="sehr gut">sehr gut</option>
           <option value="gut">gut</option>
           <option value="neutral">neutral</option>
@@ -50,7 +50,7 @@ export default function DiaryForm({ onHandleCreateDiarys, diarys }) {
           rows="10"
           cols="40"
         />
-        <ButtonSubmit name="Eintrag speichern">Eintrag speichern</ButtonSubmit>
+        <ButtonSubmit name="Eintrag speichern">Eintrag Speichern</ButtonSubmit>
       </Form>
     </Section>
   )
@@ -61,13 +61,13 @@ export default function DiaryForm({ onHandleCreateDiarys, diarys }) {
     const { entry } = form.elements
     const { subject } = form.elements
     const { date } = form.elements
-    const { stimmung } = form.elements
+    const { mood } = form.elements
 
-    onHandleCreateDiarys({
+    onHandleCreateDiaries({
       text: entry.value,
       headline: subject.value,
       date: date.value,
-      stimmung: stimmung.value,
+      mood: mood.value,
     })
     subject.value = ''
     entry.value = ''
@@ -82,6 +82,7 @@ const Section = styled.div`
   margin-top: 15px;
   width: 90%;
   margin-left: 5%;
+  overflow-x: hidden;
 `
 const Textarea = styled.textarea`
   resize: none;

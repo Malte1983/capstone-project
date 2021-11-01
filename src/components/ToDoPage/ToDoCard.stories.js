@@ -16,7 +16,7 @@ const Template = args => (
 export const Primary = Template.bind({})
 Primary.args = {
   todo: 'Clean house',
-  onHandleIsChecked: action(checkbox => console.log(checkbox)),
-  onHandleUpdateTask: action(update => console.log(update)),
-  onHandleDeleteTask: action(deleteItem => console.log(deleteItem)),
+  onChecked: action(checkbox => console.log(checkbox)),
+  onUpdateTask: action(update => console.log(update)),
+  onDeleteTask: action(deleteItem => console.log(deleteItem)),
 }
