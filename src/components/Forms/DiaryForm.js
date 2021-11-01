@@ -20,6 +20,8 @@ export default function DiaryForm({ onHandleCreateDiaries }) {
           id="subject"
           placeholder="Deine Überschrift"
           required
+          maxLength="40"
+          autoComplete="false"
         />
         <Label htmlFor="date">Datum:</Label>
         <WrapperDatePicker>

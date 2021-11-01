@@ -3,6 +3,7 @@ import DiaryForm from '../Forms/DiaryForm'
 import DiaryEntry from './DiaryEntry'
 import { v4 as uuidv4 } from 'uuid'
 import saveToLocal from '../../lib/saveToLocal'
+import moment from 'moment'
 
 export default function DiaryPage({ diaries, onSetDiaries }) {
   function handleCreateDiaries({ text, headline, date, mood }) {
@@ -16,7 +17,8 @@ export default function DiaryPage({ diaries, onSetDiaries }) {
       },
       ...diaries,
     ]
-    const sortedDates = newDiaries.sort((a, b) => (b.date < a.date ? -1 : 1))
+
+    const sortedDates = newDiaries.sort((a, b) => moment(a) - moment(b))
 
     onSetDiaries(sortedDates)
     saveToLocal('diaryLocalStorage', sortedDates)

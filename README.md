@@ -44,6 +44,7 @@ The more tasks have been completed, the more stars the user receives. :)
 - Jest
 - Styled Components
 - Storybook
+- moment
 
 ## Demo
 
