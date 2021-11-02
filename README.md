@@ -10,6 +10,12 @@ The idea is to give the user a good feeling at first. Once he or she is sufficie
 
 ![App-Screenshot](./src/App-Screenshot.png)
 
+## Short Movie
+
+<p align="center">
+<img src="./src/movie.gif" width="160"/>
+</p>
+
 ## Start-Page
 
 The introduction: a few motivational quotes. No more and no less. The goal is to get the user in the mood for his upcoming tasks.
@@ -49,3 +55,14 @@ The more tasks have been completed, the more stars the user receives. :)
 ## Demo
 
 [Watch on Vercel](https://capstone-project-roan.vercel.app/)
+
+## Project setup
+
+- clone this repository
+- install all npm dependencies
+- `npm install`
+- `npm start` and the App run`s in DevMode
+  open on: http://localhost:3000 to view in Browser
+- Start Storybook with `npm run storybook`
+- To run unit and component tests npm `npm test`
+- Create a build ready for deploying: `npm run build`
