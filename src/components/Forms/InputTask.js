@@ -68,7 +68,6 @@ const Button = styled.button`
   padding: 5px 10px 5px 10px;
   background-color: black;
   color: white;
-  cursor: pointer;
 `
 const Label = styled.label`
   visibility: hidden;
